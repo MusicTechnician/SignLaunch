@@ -20,7 +20,7 @@ public class Events implements Listener{
 	public void onPlayerInteract(PlayerInteractEvent e) {
 		Player p = e.getPlayer();
 		Block b = e.getClickedBlock();
-		World world = b.getWorld();
+		World world = p.getWorld();
 		
 		int x = b.getX();
 		int y = b.getY();

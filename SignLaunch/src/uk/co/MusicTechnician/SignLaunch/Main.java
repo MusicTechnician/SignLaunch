@@ -13,7 +13,7 @@ public class Main extends JavaPlugin implements Listener{
 	}
 	
 	public void onDisable() {
-		getServer().getConsoleSender().sendRawMessage("Sign Launch Disabled");
+		getServer().getConsoleSender().sendRawMessage("SignLaunch Disabled");
 	}
 	
 	
