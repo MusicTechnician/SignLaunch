@@ -2,7 +2,6 @@ package uk.co.MusicTechnician.SignLaunch;
 
 import org.bukkit.Location;
 import org.bukkit.Sound;
-import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.block.data.AnaloguePowerable;
@@ -20,14 +19,14 @@ public class Events implements Listener{
 	public void onPlayerInteract(PlayerInteractEvent e) {
 		Player p = e.getPlayer();
 		Block b = e.getClickedBlock();
-		World world = p.getWorld();
+
 		
 		int x = b.getX();
 		int y = b.getY();
 		int z = b.getZ();
 		
 		//ub = Underneath Block, Built this location to be able to check 2 blocks below 
-		Block ub = new Location(world, x, y - 2, z).getBlock();
+		Block ub = new Location(p.getWorld(), x, y - 2, z).getBlock();
 		
 		
 		//checks if pressure plate + sign combo		
