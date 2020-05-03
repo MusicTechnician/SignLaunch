@@ -17,8 +17,15 @@ public class Events implements Listener{
 
 	@EventHandler
 	public void onPlayerInteract(PlayerInteractEvent e) {
+		
+		if(e.getClickedBlock() == null) {
+			e.setCancelled(true);
+			return;
+		}
+		
 		Player p = e.getPlayer();
 		Block b = e.getClickedBlock();
+		Action a = e.getAction();
 
 		
 		int x = b.getX();
@@ -28,9 +35,9 @@ public class Events implements Listener{
 		//ub = Underneath Block, Built this location to be able to check 2 blocks below 
 		Block ub = new Location(p.getWorld(), x, y - 2, z).getBlock();
 		
-		
+
 		//checks if pressure plate + sign combo		
-		if((e.getAction() != Action.LEFT_CLICK_BLOCK && e.getAction() != Action.RIGHT_CLICK_BLOCK)) {
+		if((a != Action.LEFT_CLICK_BLOCK && a != Action.RIGHT_CLICK_BLOCK)) {
 		if(b.getBlockData() instanceof Powerable ||
 			b.getBlockData() instanceof AnaloguePowerable){
 			if(ub.getState() instanceof Sign || 
